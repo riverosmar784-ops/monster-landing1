@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Monster Energy – Ventas Directas</title>
+  <meta name="color-scheme" content="dark">
+  <style>
+    :root {
+      --negro: #000;
+      --gris: #0c0c0c;
+      --gris-2: #111;
+      --verde: #39ff14;
+      --verde-2: #28cc0a;
+      --blanco: #fff;
+      --whatsapp: #25D366;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--negro);
+      color: var(--blanco);
+      text-align: center;
+      min-height: 100svh;
+    }
+    body::before, body::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      width: 90px;
+      height: 100%;
+      background: var(--verde);
+      z-index: -1;
+      filter: drop-shadow(0 0 18px rgba(57,255,20,.55));
+    }
+    body::before { left: 0; clip-path: polygon(0 0, 96% 14%, 96% 86%, 0 100%); }
+    body::after { right: 0; clip-path: polygon(4% 12%, 100% 0, 100% 100%, 4% 88%); }
+    header { padding: 32px 16px 8px; }
+    .logo { margin-bottom: 10px; filter: drop-shadow(0 0 10px rgba(57,255,20,.45)); }
+    .logo img { width: 140px; height: auto; }
+    h1 { margin: 8px 0 0; font-size: 24px; letter-spacing: 1.5px; color: var(--verde); text-shadow: 0 0 12px var(--verde); text-transform: uppercase; }
+    p.lead { margin: 8px 16px 0; opacity: .95; }
+    .wrap { max-width: 920px; margin: 0 auto; padding: 16px; }
+    .precios { background: var(--gris-2); border: 2px solid var(--verde); border-radius: 14px; padding: 18px; margin: 18px auto; box-shadow: 0 0 18px rgba(57,255,20,.35); line-height: 1.6; max-width: 760px; }
+    .precios h2 { margin: 0 0 6px; color: var(--verde); font-size: 18px; }
+    .precios .item { margin: 4px 0; font-size: 15.5px; }
+    .precios .precio { color: var(--verde); font-weight: 700; }
+    .nota { font-size: 13px; opacity: .85; }
+    .form-card { background: rgba(0,0,0,.85); border: 2px solid var(--verde); border-radius: 14px; padding: 22px; margin: 18px auto 28px; box-shadow: 0 0 18px rgba(57,255,20,.35); max-width: 520px; text-align: left; }
+    .form-card label { display: block; margin: 10px 0 6px; font-weight: 700; color: var(--verde); font-size: 14px; }
+    .form-card input, .form-card textarea { width: 100%; padding: 12px; border: 1px solid var(--verde); border-radius: 8px; background: #101010; color: var(--blanco); font-size: 15px; }
+    .form-card textarea { min-height: 80px; resize: vertical; }
+    .form-card input:focus, .form-card textarea:focus { border-color: var(--verde-2); box-shadow: 0 0 10px rgba(57,255,20,.45); outline: none; }
+    .btn-whatsapp { display: inline-block; margin-top: 14px; width: 100%; padding: 12px 18px; border-radius: 10px; background: var(--whatsapp); color: #fff; font-weight: 800; font-size: 16px; text-align: center; text-decoration: none; transition: transform .05s, background .2s; }
+    .btn-whatsapp:hover { background: #20b857; }
+    .btn-whatsapp:active { transform: scale(.99); }
+    footer { padding: 24px 12px 40px; font-size: 12.5px; color: #aaa; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <picture>
+        <source srcset="https://1000marcas.net/wp-content/uploads/2020/03/Monster-Energy-Logo.png" type="image/png">
+        <img src="https://seeklogo.com/images/M/monster-energy-logo-6F2D1AA9E5-seeklogo.com.png" alt="Monster Energy Logo">
+      </picture>
+    </div>
+    <h1>¡Energía extrema con sabor!</h1>
+    <p class="lead">Haz tu pedido directo y recíbelo en la puerta de tu casa 🏠⚡</p>
+  </header>
+  <main class="wrap">
+    <section class="precios">
+      <h2>Precios por charola</h2>
+      <div class="item">🖤 Blanco Zero / Negro Clásico — <span class="precio">$28 por lata</span></div>
+      <div class="item">🥭 Mango Loco / 🍑 Ultra Peach (Durazno) / 🥝 Ultra Paradise (Kiwi-Lima) — <span class="precio">$31 por lata</span></div>
+      <div class="nota">*Precios sujetos a disponibilidad. Entrega a domicilio en tu zona.</div>
+    </section>
+    <section class="form-card">
+      <form id="pedidoForm">
+        <label for="nombre">Nombre</label>
+        <input id="nombre" type="text" placeholder="Tu nombre" required>
+        <label for="numero">Número</label>
+        <input id="numero" type="tel" placeholder="Ej. 5632326734" required>
+        <label for="correo">Correo</label>
+        <input id="correo" type="email" placeholder="tu@email.com" required>
+        <label for="direccion">Lugar donde quisieras recibir el producto</label>
+        <textarea id="direccion" placeholder="Dirección o zona de entrega" required></textarea>
+        <a href="#" id="whatsapp-link" class="btn-whatsapp">Enviar por WhatsApp 📲</a>
+      </form>
+    </section>
+  </main>
+  <footer>© 2025 Monster Energy — Ventas directas</footer>
+  <script>
+    document.getElementById('whatsapp-link').addEventListener('click', function(e){
+      e.preventDefault();
+      const nombre = document.getElementById('nombre').value.trim();
+      const numero = document.getElementById('numero').value.trim();
+      const correo = document.getElementById('correo').value.trim();
+      const direccion = document.getElementById('direccion').value.trim();
+      const texto = `¡Hola! Quiero comprar Monster Energy.%0A👤 Nombre: ${encodeURIComponent(nombre)}%0A📞 Número: ${encodeURIComponent(numero)}%0A📧 Correo: ${encodeURIComponent(correo)}%0A📍 Lugar de entrega: ${encodeURIComponent(direccion)}`;
+      const url = `https://wa.me/525632326734?text=${texto}`;
+      window.open(url, '_blank');
+    });
+  </script>
+</body>
+</html>
