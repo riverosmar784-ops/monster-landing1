@@ -4,118 +4,86 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Monster Energy – Ventas Directas</title>
-  <meta name="color-scheme" content="dark" />
-
-  <!-- Open Graph / Social preview -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Monster Energy – Ventas Directas">
-  <meta property="og:description" content="Haz tu pedido directo y recíbelo en la puerta de tu casa.">
-  <meta property="og:url" content="https://rosmar784-ops.github.io/monster-landing1/">
-  <meta property="og:image" content="https://rosmar784-ops.github.io/monster-landing1/logo.png?v=3">
-  <meta property="og:image:width" content="640">
-  <meta property="og:image:height" content="640">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Monster Energy – Ventas Directas">
-  <meta name="twitter:description" content="Haz tu pedido directo y recíbelo en la puerta de tu casa.">
-  <meta name="twitter:image" content="https://rosmar784-ops.github.io/monster-landing1/logo.png?v=3">
-
-  <!-- Favicon -->
-  <link rel="icon" href="logo.png?v=3" type="image/png" />
-
+  <meta name="color-scheme" content="dark">
   <style>
-    :root{
-      --negro:#000; --gris:#111; --verde:#39ff14; --verde-2:#28cc0a;
-      --blanco:#fff; --whatsapp:#25D366; --tint:#00ff55;
+    :root {
+      --negro: #000;
+      --gris-2: #111;
+      --verde: #39ff14;
+      --verde-2: #28cc0a;
+      --blanco: #fff;
+      --whatsapp: #25D366;
     }
-    *{box-sizing:border-box}
-    body{ margin:0; font-family:Arial, Helvetica, sans-serif; background:var(--negro);
-          color:var(--blanco); text-align:center; min-height:100svh; }
-
-    .bg,.bg-tint{ position:fixed; inset:0; pointer-events:none; z-index:-2; }
-    .bg{ background:url('https://www.seg.gob.mx/difusioneducativa/wp-content/uploads/sites/20/2021/08/rayos.gif')
-                    center center/cover no-repeat fixed; }
-    .bg-tint{ z-index:-1; background:var(--tint); mix-blend-mode:color; opacity:.8; }
-
-    body::before, body::after{
-      content:""; position:fixed; top:0; width:70px; height:100%;
-      background:var(--verde); z-index:0; filter:drop-shadow(0 0 18px rgba(57,255,20,.55));
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--negro);
+      color: var(--blanco);
+      text-align: center;
+      min-height: 100svh;
     }
-    body::before{ left:0;  clip-path:polygon(0 0,96% 14%,96% 86%,0 100%) }
-    body::after { right:0; clip-path:polygon(4% 12%,100% 0,100% 100%,4% 88%) }
-
-    header{ padding:32px 16px 8px }
-    .logo{ margin-bottom:10px; filter:drop-shadow(0 0 10px rgba(57,255,20,.45)) }
-    .logo img{ width:160px; height:auto; display:inline-block }
-    h1{ margin:8px 0 0; font-size:24px; letter-spacing:1.5px; color:var(--verde);
-        text-shadow:0 0 12px var(--verde); text-transform:uppercase; }
-    .lead{ margin:8px 16px 0 }
-    .wrap{ max-width:920px; margin:0 auto; padding:16px }
-
-    .precios{
-      background:#1a1a1a; border:2px solid var(--verde); border-radius:14px;
-      padding:18px; margin:18px auto; box-shadow:0 0 18px rgba(57,255,20,.35);
-      line-height:1.6; max-width:760px;
+    /* Bordes verdes ondulados */
+    body::before, body::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      width: 70px; /* Desktop */
+      height: 100%;
+      background: var(--verde);
+      z-index: -1;
+      filter: drop-shadow(0 0 18px rgba(57,255,20,.55));
     }
-    .precios h2{ margin:0 0 6px; color:var(--verde); font-size:18px }
-    .precios .item{ margin:4px 0; font-size:15.5px }
-    .precios .precio{ color:var(--verde); font-weight:700 }
-    .nota{ font-size:13px; opacity:.85 }
-
-    .form-card{
-      background:rgba(0,0,0,.85); border:2px solid var(--verde); border-radius:14px;
-      padding:22px; margin:18px auto 28px; box-shadow:0 0 18px rgba(57,255,20,.35);
-      max-width:520px; text-align:left;
-    }
-    .form-card label{ display:block; margin:10px 0 6px; font-weight:700; color:var(--verde); font-size:14px }
-    .form-card input,.form-card textarea{
-      width:100%; padding:12px; border:1px solid var(--verde); border-radius:8px;
-      background:#101010; color:var(--blanco); font-size:15px;
-    }
-    .form-card textarea{ min-height:80px; resize:vertical }
-    .form-card input:focus,.form-card textarea:focus{ border-color:var(--verde-2); box-shadow:0 0 10px rgba(57,255,20,.45); outline:none }
-    .btn-whatsapp{
-      display:inline-block; margin-top:14px; width:100%; padding:12px 18px; border-radius:10px;
-      background:var(--whatsapp); color:#fff; font-weight:800; font-size:16px; text-align:center; text-decoration:none;
-    }
-
-    footer{ padding:24px 12px 40px; font-size:12.5px; color:#aaa }
-
-    .fab-whatsapp{
-      position:fixed; left:16px; bottom:16px; width:56px; height:56px; border-radius:50%;
-      background:#fff; border:2px solid var(--whatsapp); display:inline-flex; align-items:center; justify-content:center;
-      box-shadow:0 6px 16px rgba(0,0,0,.35); text-decoration:none; z-index:9999;
-    }
-    .fab-whatsapp svg{ width:28px; height:28px; fill:var(--whatsapp) }
-
-    @media (max-width:768px){
-      body::before, body::after{ width:20px }
-      h1{ font-size:20px } .logo img{ width:120px }
-      .precios,.form-card{ margin-left:8px; margin-right:8px }
-      .fab-whatsapp{ left:12px; bottom:12px; width:54px; height:54px }
+    body::before { left: 0; clip-path: polygon(0 0, 96% 14%, 96% 86%, 0 100%); }
+    body::after { right: 0; clip-path: polygon(4% 12%, 100% 0, 100% 100%, 4% 88%); }
+    header { padding: 32px 16px 8px; }
+    .logo { margin-bottom: 10px; filter: drop-shadow(0 0 10px rgba(57,255,20,.45)); }
+    .logo img { width: 140px; height: auto; }
+    h1 { margin: 8px 0 0; font-size: 24px; letter-spacing: 1.5px; color: var(--verde); text-shadow: 0 0 12px var(--verde); text-transform: uppercase; }
+    p.lead { margin: 8px 16px 0; opacity: .95; }
+    .wrap { max-width: 920px; margin: 0 auto; padding: 16px; }
+    .precios { background: var(--gris-2); border: 2px solid var(--verde); border-radius: 14px; padding: 18px; margin: 18px auto; box-shadow: 0 0 18px rgba(57,255,20,.35); line-height: 1.6; max-width: 760px; }
+    .precios h2 { margin: 0 0 6px; color: var(--verde); font-size: 18px; }
+    .precios .item { margin: 4px 0; font-size: 15.5px; }
+    .precios .precio { color: var(--verde); font-weight: 700; }
+    .nota { font-size: 13px; opacity: .85; }
+    .form-card { background: rgba(0,0,0,.85); border: 2px solid var(--verde); border-radius: 14px; padding: 22px; margin: 18px auto 28px; box-shadow: 0 0 18px rgba(57,255,20,.35); max-width: 520px; text-align: left; }
+    .form-card label { display: block; margin: 10px 0 6px; font-weight: 700; color: var(--verde); font-size: 14px; }
+    .form-card input, .form-card textarea { width: 100%; padding: 12px; border: 1px solid var(--verde); border-radius: 8px; background: #101010; color: var(--blanco); font-size: 15px; }
+    .form-card textarea { min-height: 80px; resize: vertical; }
+    .form-card input:focus, .form-card textarea:focus { border-color: var(--verde-2); box-shadow: 0 0 10px rgba(57,255,20,.45); outline: none; }
+    .btn-whatsapp { display: inline-block; margin-top: 14px; width: 100%; padding: 12px 18px; border-radius: 10px; background: var(--whatsapp); color: #fff; font-weight: 800; font-size: 16px; text-align: center; text-decoration: none; transition: transform .05s, background .2s; }
+    .btn-whatsapp:hover { background: #20b857; }
+    .btn-whatsapp:active { transform: scale(.99); }
+    footer { padding: 24px 12px 40px; font-size: 12.5px; color: #aaa; }
+    /* Responsive ajustes */
+    @media (max-width: 768px) {
+      body::before, body::after { width: 20px; } /* Slimmer on mobile */
+      h1 { font-size: 20px; }
+      .form-card, .precios { margin-left: 8px; margin-right: 8px; }
+      .logo img { width: 110px; }
     }
   </style>
 </head>
 <body>
-  <div class="bg" aria-hidden="true"></div>
-  <div class="bg-tint" aria-hidden="true"></div>
-
   <header>
     <div class="logo">
-      <img src="logo.png?v=3" alt="Monster Energy Logo">
+      <picture>
+        <source srcset="https://1000marcas.net/wp-content/uploads/2020/03/Monster-Energy-Logo.png" type="image/png">
+        <img src="https://seeklogo.com/images/M/monster-energy-logo-6F2D1AA9E5-seeklogo.com.png" alt="Monster Energy Logo">
+      </picture>
     </div>
-    <h1>¡ENERGÍA EXTREMA CON SABOR!</h1>
+    <h1>¡Energía extrema con sabor!</h1>
     <p class="lead">Haz tu pedido directo y recíbelo en la puerta de tu casa 🏠⚡</p>
   </header>
-
   <main class="wrap">
-    <section class="precios" aria-label="Lista de precios">
+    <section class="precios">
       <h2>Precios por charola</h2>
       <div class="item">🖤 Blanco Zero / Negro Clásico — <span class="precio">$28 por lata</span></div>
       <div class="item">🥭 Mango Loco / 🍑 Ultra Peach (Durazno) / 🥝 Ultra Paradise (Kiwi-Lima) — <span class="precio">$31 por lata</span></div>
       <div class="nota">*Precios sujetos a disponibilidad. Entrega a domicilio en tu zona.</div>
     </section>
-
-    <section class="form-card" aria-label="Formulario de pedido">
+    <section class="form-card">
       <form id="pedidoForm">
         <label for="nombre">Nombre</label>
         <input id="nombre" type="text" placeholder="Tu nombre" required>
@@ -129,35 +97,18 @@
       </form>
     </section>
   </main>
-
   <footer>© 2025 Monster Energy — Ventas directas</footer>
-
-  <a href="#" id="fabWhatsApp" class="fab-whatsapp" aria-label="Chatear por WhatsApp">
-    <svg viewBox="0 0 32 32" aria-hidden="true">
-      <path d="M19.11 17.34c-.27-.13-1.57-.77-1.81-.86-.24-.09-.42-.13-.6.13-.18.27-.69.86-.85 1.04-.16.18-.31.2-.58.07-.27-.13-1.14-.42-2.17-1.35-.8-.71-1.34-1.58-1.5-1.84-.16-.27-.02-.42.11-.55.11-.11.27-.29.4-.44.13-.16.18-.27.27-.45.09-.18.04-.34-.02-.47-.07-.13-.6-1.45-.82-1.98-.22-.53-.44-.45-.6-.45h-.51c-.18 0-.47.07-.71.34-.24.27-.93.91-.93 2.22s.95 2.58 1.08 2.76c.13.18 1.87 2.86 4.53 4.02.63.27 1.12.43 1.5.55.63.2 1.21.17 1.67.1.51-.08 1.57-.64 1.79-1.25.22-.62.22-1.15.16-1.25-.06-.11-.24-.18-.51-.31zM16.01 3.2c-6.98 0-12.64 5.66-12.64 12.64 0 2.23.58 4.31 1.59 6.11L3.2 28.8l7.06-1.85a12.57 12.57 0 0 0 5.75 1.47c6.98 0 12.64-5.66 12.64-12.64 0-3.38-1.32-6.56-3.72-8.95a12.57 12.57 0 0 0-8.92-3.63zm0 23.03c-2.08 0-4.02-.6-5.65-1.63l-.41-.26-4.19 1.1 1.12-4.09-.27-.42a10.39 10.39 0 0 1-1.6-5.52c0-5.73 4.66-10.38 10.39-10.38 2.78 0 5.38 1.08 7.34 3.04a10.35 10.35 0 0 1 3.05 7.34c0 5.73-4.66 10.4-10.39 10.4z"/>
-    </svg>
-  </a>
-
   <script>
-    function enviarWhatsApp(flotante=false){
-      const nombre = document.getElementById('nombre')?.value.trim() || "";
-      const numero = document.getElementById('numero')?.value.trim() || "";
-      const correo = document.getElementById('correo')?.value.trim() || "";
-      const direccion = document.getElementById('direccion')?.value.trim() || "";
-
-      let texto = (flotante && !nombre && !numero && !correo && !direccion)
-        ? "¡Hola! Me interesa comprar Monster Energy. ¿Me das info, por favor?"
-        : `¡Hola! Quiero comprar Monster Energy.
-👤 Nombre: ${nombre}
-📞 Número: ${numero}
-📧 Correo: ${correo}
-📍 Lugar de entrega: ${direccion}`;
-
-      const url = `https://wa.me/525632326734?text=${encodeURIComponent(texto)}`;
-      window.open(url, "_blank");
-    }
-    document.getElementById('whatsapp-link').addEventListener('click', e => { e.preventDefault(); enviarWhatsApp(); });
-    document.getElementById('fabWhatsApp').addEventListener('click', e => { e.preventDefault(); enviarWhatsApp(true); });
+    document.getElementById('whatsapp-link').addEventListener('click', function(e){
+      e.preventDefault();
+      const nombre = document.getElementById('nombre').value.trim();
+      const numero = document.getElementById('numero').value.trim();
+      const correo = document.getElementById('correo').value.trim();
+      const direccion = document.getElementById('direccion').value.trim();
+      const texto = `¡Hola! Quiero comprar Monster Energy.%0A👤 Nombre: ${encodeURIComponent(nombre)}%0A📞 Número: ${encodeURIComponent(numero)}%0A📧 Correo: ${encodeURIComponent(correo)}%0A📍 Lugar de entrega: ${encodeURIComponent(direccion)}`;
+      const url = `https://wa.me/525632326734?text=${texto}`;
+      window.open(url, '_blank');
+    });
   </script>
 </body>
 </html>
