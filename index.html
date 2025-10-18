@@ -8,7 +8,6 @@
   <style>
     :root {
       --negro: #000;
-      --gris: #0c0c0c;
       --gris-2: #111;
       --verde: #39ff14;
       --verde-2: #28cc0a;
@@ -24,11 +23,12 @@
       text-align: center;
       min-height: 100svh;
     }
+    /* Bordes verdes ondulados */
     body::before, body::after {
       content: "";
       position: fixed;
       top: 0;
-      width: 90px;
+      width: 70px; /* Desktop */
       height: 100%;
       background: var(--verde);
       z-index: -1;
@@ -56,6 +56,13 @@
     .btn-whatsapp:hover { background: #20b857; }
     .btn-whatsapp:active { transform: scale(.99); }
     footer { padding: 24px 12px 40px; font-size: 12.5px; color: #aaa; }
+    /* Responsive ajustes */
+    @media (max-width: 768px) {
+      body::before, body::after { width: 20px; } /* Slimmer on mobile */
+      h1 { font-size: 20px; }
+      .form-card, .precios { margin-left: 8px; margin-right: 8px; }
+      .logo img { width: 110px; }
+    }
   </style>
 </head>
 <body>
